@@ -2,69 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Lets Draw — Privacy Policy</title>
 
   <style>
     :root{
       --bg1:#0b0f19;
       --bg2:#0f172a;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.08);
       --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
+      --muted: rgba(255,255,255,.74);
       --line: rgba(255,255,255,.12);
-      --accent:#7c3aed; /* mor */
-      --accent2:#22c55e; /* yeşil */
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --accent:#7c3aed;   /* purple */
+      --good:#22c55e;     /* green */
+      --shadow: 0 18px 45px rgba(0,0,0,.45);
       --radius: 18px;
     }
 
-    * { box-sizing: border-box; }
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(1000px 600px at 15% 10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(900px 500px at 85% 20%, rgba(34,197,94,.22), transparent 60%),
+        radial-gradient(850px 520px at 18% 10%, rgba(124,58,237,.33), transparent 60%),
+        radial-gradient(780px 460px at 90% 18%, rgba(34,197,94,.20), transparent 60%),
         linear-gradient(180deg, var(--bg1), var(--bg2));
-      min-height: 100vh;
-      padding: 28px 16px 48px;
+      padding: 18px 14px 18px; /* alt boşluk azaltıldı: morluk hissi azalır */
+      padding-left: calc(14px + env(safe-area-inset-left));
+      padding-right: calc(14px + env(safe-area-inset-right));
+      overflow-x: hidden;
     }
 
     .wrap{
-      max-width: 920px;
+      max-width: 980px;
       margin: 0 auto;
     }
 
+    /* Header */
     header{
       display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom: 18px;
-    }
-
-    .brand{
-      display:flex;
       flex-direction:column;
-      gap:8px;
+      gap: 12px;
+      margin-bottom: 14px;
     }
 
     .title{
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1.1;
       margin:0;
+      font-size: 28px;
+      line-height: 1.12;
       letter-spacing: -0.02em;
-    }
-
-    .subtitle{
-      margin:0;
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.5;
-      max-width: 68ch;
     }
 
     .pill{
@@ -77,15 +64,16 @@
       background: rgba(255,255,255,.05);
       color: var(--muted);
       font-size: 12.5px;
-      white-space: nowrap;
+      width: fit-content;
     }
 
     .dot{
       width:8px; height:8px; border-radius: 999px;
-      background: var(--accent2);
+      background: var(--good);
       box-shadow: 0 0 0 4px rgba(34,197,94,.18);
     }
 
+    /* Card */
     .card{
       border: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
@@ -95,20 +83,31 @@
     }
 
     .cardTop{
-      padding: 14px 16px;
+      padding: 12px 12px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    /* Tabs */
+    .tabsRow{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      gap: 10px;
+      flex-wrap:wrap;
     }
 
     .tabs{
       display:flex;
       gap:8px;
-      flex-wrap: wrap;
+      overflow:auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 2px;
     }
+    .tabs::-webkit-scrollbar{ height: 0px; }
 
     .tab{
       appearance:none;
@@ -118,118 +117,153 @@
       padding: 10px 12px;
       border-radius: 999px;
       cursor:pointer;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 13px;
-      transition: transform .05s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      white-space: nowrap;
+      transition: background .2s ease, border-color .2s ease, color .2s ease, transform .05s ease;
+      flex: 0 0 auto;
     }
-    .tab:hover{ transform: translateY(-1px); }
+    .tab:active{ transform: scale(.98); }
+
     .tab.active{
       background: rgba(124,58,237,.18);
       border-color: rgba(124,58,237,.45);
       color: var(--text);
     }
 
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      width: fit-content;
+    }
+
     .content{
-      padding: 18px 18px 10px;
+      padding: 14px 12px 10px;
     }
 
     .sectionTitle{
       display:flex;
       align-items:center;
       gap:10px;
-      margin: 0 0 14px;
-      font-size: 18px;
+      margin: 0 0 12px;
+      font-size: 16px;
       letter-spacing: -0.01em;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 600;
     }
 
     .grid{
       display:grid;
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: 10px;
     }
 
     .item{
-      padding: 14px 14px;
+      padding: 13px 12px;
       border: 1px solid var(--line);
       border-radius: 14px;
       background: rgba(255,255,255,.04);
     }
 
     .item h3{
-      margin:0 0 8px;
+      margin:0 0 6px;
       font-size: 14.5px;
       color: var(--text);
       letter-spacing: -0.01em;
+      line-height: 1.25;
     }
+
     .item p{
       margin:0;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.65;
       font-size: 14px;
     }
 
     .divider{
       height:1px;
       background: var(--line);
-      margin: 16px 0;
+      margin: 12px 0;
+    }
+
+    .highlightPurple{
+      background: rgba(124,58,237,.10);
+      border-color: rgba(124,58,237,.25);
+    }
+    .highlightGreen{
+      background: rgba(34,197,94,.10);
+      border-color: rgba(34,197,94,.25);
     }
 
     .footer{
-      padding: 14px 18px 18px;
+      padding: 12px 12px 14px;
       border-top: 1px solid var(--line);
       display:flex;
-      flex-wrap:wrap;
-      gap: 10px 14px;
-      align-items:center;
-      justify-content:space-between;
+      flex-direction:column;
+      gap: 10px;
       color: var(--muted);
       font-size: 13px;
       background: rgba(255,255,255,.03);
+    }
+
+    .contact{
+      display:flex;
+      flex-direction:column;
+      gap: 8px;
+    }
+
+    .mail{
+      display:inline-block;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      width: fit-content;
+      max-width: 100%;
     }
 
     a{
       color: rgba(255,255,255,.92);
       text-decoration: none;
       border-bottom: 1px dashed rgba(255,255,255,.35);
+      word-break: break-word;
     }
-    a:hover{
-      border-bottom-color: rgba(255,255,255,.7);
-    }
+    a:hover{ border-bottom-color: rgba(255,255,255,.7); }
 
-    .contact{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-
-    .mail{
-      padding: 8px 10px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.04);
+    /* Bigger screens */
+    @media (min-width: 520px){
+      body{ padding: 24px 18px 22px; }
+      .title{ font-size: 34px; }
+      .cardTop{ padding: 14px 16px; }
+      .content{ padding: 18px 16px 12px; }
+      .footer{ padding: 14px 16px 16px; }
+      .sectionTitle{ font-size: 17px; }
+      .item{ padding: 14px 14px; }
     }
 
     @media (min-width: 860px){
-      .grid{
-        grid-template-columns: 1fr 1fr;
+      header{
+        flex-direction:row;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap: 16px;
       }
+      .grid{ grid-template-columns: 1fr 1fr; }
+      .footer{
+        flex-direction:row;
+        align-items:center;
+        justify-content:space-between;
+      }
+      .contact{ flex-direction:row; align-items:center; }
     }
 
-    /* hide/show panels */
+    /* Panels */
     .panel{ display:none; }
     .panel.active{ display:block; }
   </style>
@@ -238,32 +272,30 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="brand">
-        <h1 class="title">Lets Draw — Privacy Policy</h1>
-        <p class="subtitle">
-          A simple, offline-first privacy policy page for Google Play & GitHub Pages.
-          This app does not collect or transmit personal data.
-        </p>
-      </div>
+      <h1 class="title" id="pageTitle">Lets Draw — Privacy Policy</h1>
+
       <div class="pill" title="Status">
         <span class="dot"></span>
-        Offline App • No Tracking
+        <span id="statusText">Offline App • No Tracking</span>
       </div>
     </header>
 
     <div class="card">
       <div class="cardTop">
-        <div class="tabs">
-          <button class="tab active" data-target="en">🇬🇧 English</button>
-          <button class="tab" data-target="tr">🇹🇷 Türkçe</button>
+        <div class="tabsRow">
+          <div class="tabs">
+            <button class="tab active" data-target="en" data-lang="en">🇬🇧 English</button>
+            <button class="tab" data-target="tr" data-lang="tr">🇹🇷 Türkçe</button>
+          </div>
+
+          <span class="badge" id="updatedBadge">Updated: March 2026</span>
         </div>
-        <span class="badge">Updated: March 2026</span>
       </div>
 
       <div class="content">
         <!-- EN -->
         <div class="panel active" id="en">
-          <h2 class="sectionTitle">Privacy Summary <span class="badge">TL;DR</span></h2>
+          <h2 class="sectionTitle" id="enSectionTitle">Privacy Summary</h2>
 
           <div class="grid">
             <div class="item">
@@ -292,7 +324,7 @@
             <div class="item">
               <h3>Local Storage Only</h3>
               <p>
-                All drawings are stored locally on the user’s device. Images may be saved to the device storage
+                All drawings are stored locally on the user’s device. Images may be saved to device storage
                 only when the user chooses to export or save their drawings.
               </p>
             </div>
@@ -300,7 +332,7 @@
 
           <div class="divider"></div>
 
-          <div class="item" style="background: rgba(124,58,237,.10); border-color: rgba(124,58,237,.25);">
+          <div class="item highlightPurple">
             <h3>Data Transmission</h3>
             <p>The application does not transmit any data outside of the user's device.</p>
           </div>
@@ -308,21 +340,21 @@
 
         <!-- TR -->
         <div class="panel" id="tr">
-          <h2 class="sectionTitle">Gizlilik Özeti <span class="badge">Kısa Özet</span></h2>
+          <h2 class="sectionTitle" id="trSectionTitle">Gizlilik Özeti</h2>
 
           <div class="grid">
             <div class="item">
               <h3>Çevrimdışı & Veri Toplamaz</h3>
               <p>
                 Lets Draw, tamamen çevrimdışı çalışan tek oyunculu bir çizim uygulamasıdır.
-                Uygulama herhangi bir kişisel veriyi veya kullanıcı bilgisini toplamaz, saklamaz, işlemez veya paylaşmaz.
+                Uygulama herhangi bir kişisel veriyi veya kullanıcı bilgisini toplamaz, saklamaz, işlemez veya üçüncü taraflarla paylaşmaz.
               </p>
             </div>
 
             <div class="item">
               <h3>İnternet / Reklam / Analiz Yok</h3>
               <p>
-                Uygulama internet bağlantısı gerektirmez ve reklam, analiz (analytics) veya üçüncü taraf takip hizmetleri kullanmaz.
+                Uygulama internet bağlantısı gerektirmez ve reklam, analiz (analytics) veya herhangi bir üçüncü taraf takip hizmeti kullanmaz.
               </p>
             </div>
 
@@ -336,15 +368,15 @@
             <div class="item">
               <h3>Yalnızca Yerel Depolama</h3>
               <p>
-                Uygulama içinde oluşturulan tüm çizimler kullanıcının cihazında yerel olarak saklanır.
-                Kullanıcı kaydetme veya dışa aktarma seçtiğinde görseller cihazın depolama alanına kaydedilebilir.
+                Uygulama içerisinde oluşturulan tüm çizimler kullanıcının kendi cihazında yerel olarak saklanır.
+                Kullanıcı kaydetmeyi veya dışa aktarmayı seçtiğinde, görseller cihazın depolama alanına kaydedilebilir.
               </p>
             </div>
           </div>
 
           <div class="divider"></div>
 
-          <div class="item" style="background: rgba(34,197,94,.10); border-color: rgba(34,197,94,.25);">
+          <div class="item highlightGreen">
             <h3>Veri Aktarımı</h3>
             <p>Uygulama hiçbir veriyi kullanıcının cihazı dışına göndermez.</p>
           </div>
@@ -353,8 +385,10 @@
 
       <div class="footer">
         <div class="contact">
-          <span>Contact / İletişim:</span>
-          <span class="mail"><a href="mailto:wilwaeringames@gmail.com">wilwaeringames@gmail.com</a></span>
+          <span id="contactLabel">Contact:</span>
+          <span class="mail">
+            <a href="mailto:wilwaeringames@gmail.com">wilwaeringames@gmail.com</a>
+          </span>
         </div>
         <div>© <span id="year"></span> Wilwaerin Games</div>
       </div>
@@ -362,23 +396,81 @@
   </div>
 
   <script>
-    // Year
+    // year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Tabs
+    // language-dependent texts
+    const i18n = {
+      en: {
+        pageTitle: "Lets Draw — Privacy Policy",
+        statusText: "Offline App • No Tracking",
+        updated: "Updated: March 2026",
+        contact: "Contact:",
+        docTitle: "Lets Draw — Privacy Policy"
+      },
+      tr: {
+        pageTitle: "Lets Draw — Gizlilik Politikası",
+        statusText: "Çevrimdışı Uygulama • Takip Yok",
+        updated: "Son güncelleme: Mart 2026",
+        contact: "İletişim:",
+        docTitle: "Lets Draw — Gizlilik Politikası"
+      }
+    };
+
+    let currentLang = "en";
+
+    function applyLang(lang){
+      currentLang = lang;
+
+      // document title
+      document.title = i18n[lang].docTitle;
+
+      // top
+      document.getElementById("pageTitle").textContent = i18n[lang].pageTitle;
+      document.getElementById("statusText").textContent = i18n[lang].statusText;
+
+      // badge + footer
+      document.getElementById("updatedBadge").textContent = i18n[lang].updated;
+      document.getElementById("contactLabel").textContent = i18n[lang].contact;
+    }
+
+    // tabs
     const tabs = document.querySelectorAll(".tab");
     const panels = document.querySelectorAll(".panel");
 
     tabs.forEach(btn => {
       btn.addEventListener("click", () => {
+        // active tab
         tabs.forEach(t => t.classList.remove("active"));
         btn.classList.add("active");
 
+        // show panel
         const target = btn.getAttribute("data-target");
         panels.forEach(p => p.classList.remove("active"));
         document.getElementById(target).classList.add("active");
+
+        // apply language strings
+        applyLang(btn.getAttribute("data-lang"));
       });
     });
+
+    // initial
+    // detect browser language
+    const userLang = navigator.language || navigator.userLanguage;
+
+    // if Turkish → open Turkish automatically
+    if(userLang.startsWith("tr")){
+      applyLang("tr");
+
+      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+      document.querySelector('[data-lang="tr"]').classList.add("active");
+
+      document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+      document.getElementById("tr").classList.add("active");
+
+    }else{
+      applyLang("en");
+    }
   </script>
 </body>
 </html>
