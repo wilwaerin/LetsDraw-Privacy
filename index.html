@@ -12,8 +12,8 @@
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.74);
       --line: rgba(255,255,255,.12);
-      --accent:#7c3aed;   /* purple */
-      --good:#22c55e;     /* green */
+      --accent:#7c3aed;
+      --good:#22c55e;
       --shadow: 0 18px 45px rgba(0,0,0,.45);
       --radius: 18px;
     }
@@ -28,7 +28,7 @@
         radial-gradient(850px 520px at 18% 10%, rgba(124,58,237,.33), transparent 60%),
         radial-gradient(780px 460px at 90% 18%, rgba(34,197,94,.20), transparent 60%),
         linear-gradient(180deg, var(--bg1), var(--bg2));
-      padding: 18px 14px 18px; /* alt boşluk azaltıldı: morluk hissi azalır */
+      padding: 18px 14px 18px;
       padding-left: calc(14px + env(safe-area-inset-left));
       padding-right: calc(14px + env(safe-area-inset-right));
       overflow-x: hidden;
@@ -39,7 +39,6 @@
       margin: 0 auto;
     }
 
-    /* Header */
     header{
       display:flex;
       flex-direction:column;
@@ -73,7 +72,6 @@
       box-shadow: 0 0 0 4px rgba(34,197,94,.18);
     }
 
-    /* Card */
     .card{
       border: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
@@ -91,7 +89,6 @@
       gap: 10px;
     }
 
-    /* Tabs */
     .tabsRow{
       display:flex;
       align-items:center;
@@ -186,6 +183,17 @@
       font-size: 14px;
     }
 
+    .quoteText{
+      display:block;
+      margin-top:10px;
+      padding:10px 12px;
+      border-left:3px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.03);
+      border-radius: 10px;
+      font-style: italic;
+      color: rgba(255,255,255,.82);
+    }
+
     .divider{
       height:1px;
       background: var(--line);
@@ -236,7 +244,6 @@
     }
     a:hover{ border-bottom-color: rgba(255,255,255,.7); }
 
-    /* Bigger screens */
     @media (min-width: 520px){
       body{ padding: 24px 18px 22px; }
       .title{ font-size: 34px; }
@@ -263,7 +270,6 @@
       .contact{ flex-direction:row; align-items:center; }
     }
 
-    /* Panels */
     .panel{ display:none; }
     .panel.active{ display:block; }
   </style>
@@ -286,6 +292,7 @@
           <div class="tabs">
             <button class="tab active" data-target="en" data-lang="en">🇬🇧 English</button>
             <button class="tab" data-target="tr" data-lang="tr">🇹🇷 Türkçe</button>
+            <button class="tab" data-target="es" data-lang="es">🇪🇸 Español</button>
           </div>
 
           <span class="badge" id="updatedBadge">Updated: March 2026</span>
@@ -295,7 +302,7 @@
       <div class="content">
         <!-- EN -->
         <div class="panel active" id="en">
-          <h2 class="sectionTitle" id="enSectionTitle">Privacy Summary</h2>
+          <h2 class="sectionTitle">Privacy Summary</h2>
 
           <div class="grid">
             <div class="item">
@@ -327,6 +334,9 @@
                 All drawings are stored locally on the user’s device. Images may be saved to device storage
                 only when the user chooses to export or save their drawings.
               </p>
+              <span class="quoteText">
+                "When the user explicitly uses the export feature, drawings are written to the device's photo gallery. The app does not read, access, or collect any photos from the gallery."
+              </span>
             </div>
           </div>
 
@@ -340,7 +350,7 @@
 
         <!-- TR -->
         <div class="panel" id="tr">
-          <h2 class="sectionTitle" id="trSectionTitle">Gizlilik Özeti</h2>
+          <h2 class="sectionTitle">Gizlilik Özeti</h2>
 
           <div class="grid">
             <div class="item">
@@ -371,6 +381,9 @@
                 Uygulama içerisinde oluşturulan tüm çizimler kullanıcının kendi cihazında yerel olarak saklanır.
                 Kullanıcı kaydetmeyi veya dışa aktarmayı seçtiğinde, görseller cihazın depolama alanına kaydedilebilir.
               </p>
+              <span class="quoteText">
+                "Kullanıcı dışa aktarma özelliğini açıkça kullandığında, çizimler cihazın fotoğraf galerisine yazılır. Uygulama galerideki hiçbir fotoğrafı okumaz, erişmez veya toplamaz."
+              </span>
             </div>
           </div>
 
@@ -379,6 +392,54 @@
           <div class="item highlightGreen">
             <h3>Veri Aktarımı</h3>
             <p>Uygulama hiçbir veriyi kullanıcının cihazı dışına göndermez.</p>
+          </div>
+        </div>
+
+        <!-- ES -->
+        <div class="panel" id="es">
+          <h2 class="sectionTitle">Resumen de Privacidad</h2>
+
+          <div class="grid">
+            <div class="item">
+              <h3>Sin conexión y sin recopilación de datos</h3>
+              <p>
+                Lets Draw es una aplicación de dibujo para un solo jugador que funciona completamente sin conexión.
+                No recopilamos, almacenamos, procesamos ni compartimos datos personales ni información del usuario.
+              </p>
+            </div>
+
+            <div class="item">
+              <h3>Sin internet / anuncios / analíticas</h3>
+              <p>
+                La aplicación no requiere conexión a internet y no utiliza anuncios,
+                analíticas ni servicios de seguimiento de terceros.
+              </p>
+            </div>
+
+            <div class="item">
+              <h3>Sin cuentas ni identificadores</h3>
+              <p>
+                Esta aplicación no utiliza cuentas de usuario, sistemas de inicio de sesión ni identificadores personales.
+              </p>
+            </div>
+
+            <div class="item">
+              <h3>Solo almacenamiento local</h3>
+              <p>
+                Todos los dibujos se almacenan localmente en el dispositivo del usuario.
+                Las imágenes pueden guardarse en el almacenamiento del dispositivo solo cuando el usuario elige exportar o guardar sus dibujos.
+              </p>
+              <span class="quoteText">
+                "Cuando el usuario utiliza explícitamente la función de exportación, los dibujos se escriben en la galería de fotos del dispositivo. La aplicación no lee, accede ni recopila ninguna foto de la galería."
+              </span>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="item highlightGreen">
+            <h3>Transmisión de datos</h3>
+            <p>La aplicación no transmite ningún dato fuera del dispositivo del usuario.</p>
           </div>
         </div>
       </div>
@@ -396,10 +457,8 @@
   </div>
 
   <script>
-    // year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // language-dependent texts
     const i18n = {
       en: {
         pageTitle: "Lets Draw — Privacy Policy",
@@ -414,6 +473,13 @@
         updated: "Son güncelleme: Mart 2026",
         contact: "İletişim:",
         docTitle: "Lets Draw — Gizlilik Politikası"
+      },
+      es: {
+        pageTitle: "Lets Draw — Política de Privacidad",
+        statusText: "Aplicación sin conexión • Sin seguimiento",
+        updated: "Actualizado: Marzo de 2026",
+        contact: "Contacto:",
+        docTitle: "Lets Draw — Política de Privacidad"
       }
     };
 
@@ -422,53 +488,48 @@
     function applyLang(lang){
       currentLang = lang;
 
-      // document title
       document.title = i18n[lang].docTitle;
+      document.documentElement.lang = lang;
 
-      // top
       document.getElementById("pageTitle").textContent = i18n[lang].pageTitle;
       document.getElementById("statusText").textContent = i18n[lang].statusText;
-
-      // badge + footer
       document.getElementById("updatedBadge").textContent = i18n[lang].updated;
       document.getElementById("contactLabel").textContent = i18n[lang].contact;
     }
 
-    // tabs
     const tabs = document.querySelectorAll(".tab");
     const panels = document.querySelectorAll(".panel");
 
     tabs.forEach(btn => {
       btn.addEventListener("click", () => {
-        // active tab
         tabs.forEach(t => t.classList.remove("active"));
         btn.classList.add("active");
 
-        // show panel
         const target = btn.getAttribute("data-target");
         panels.forEach(p => p.classList.remove("active"));
         document.getElementById(target).classList.add("active");
 
-        // apply language strings
         applyLang(btn.getAttribute("data-lang"));
       });
     });
 
-    // initial
-    // detect browser language
-    const userLang = navigator.language || navigator.userLanguage;
+    const userLang = (navigator.language || navigator.userLanguage || "en").toLowerCase();
 
-    // if Turkish → open Turkish automatically
     if(userLang.startsWith("tr")){
       applyLang("tr");
-
       document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
       document.querySelector('[data-lang="tr"]').classList.add("active");
-
       document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
       document.getElementById("tr").classList.add("active");
-
-    }else{
+    }
+    else if(userLang.startsWith("es")){
+      applyLang("es");
+      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+      document.querySelector('[data-lang="es"]').classList.add("active");
+      document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+      document.getElementById("es").classList.add("active");
+    }
+    else{
       applyLang("en");
     }
   </script>
